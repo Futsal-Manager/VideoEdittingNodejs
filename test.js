@@ -6,7 +6,7 @@
  * Todo:
  * 1. 영상편집 효과(확대, 축소, fadein, fadeout, 자막, 메인그림 삽입)
  * 2. 음악을 자동으로 골라주어야함 => 유져가 선택할 수 있도록 하는건 어떨까? NCS중에 선택.
- * 3. Exception: 영상보다 시간이 긴 경우, 영상이 아닌경우
+ * 3. Exception: 영상보다 시간이 긴 경우, 영상이 아닌경우  => 음악이 영상보다 긴 경우 음악을 잘라줌(duration 설정).
  *
  */
 
@@ -17,7 +17,7 @@ const PROCESSING_TYPE = {
     SPLIT_VIDEO: 'SPLIT Video',
     MERGE_VIDEO: 'Merge Video',
     INPUT_MUSIC: 'INPUT MUSIC',
-}
+};
 
 
 // This is Array for parameter.
@@ -151,7 +151,7 @@ function _addDurationOutput(_ffmpeg, _fileName, _startAt, _duration) {
 
 function _addOnProgress(_ffmpeg) {
     return _ffmpeg.on('progress', function(progress) {
-        console.log('Processing: ' + progress.percent + '% done');
+        // console.log('Processing: ' + progress.percent + '% done');
     })
 }
 
